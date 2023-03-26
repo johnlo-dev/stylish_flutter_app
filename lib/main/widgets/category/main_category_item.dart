@@ -15,6 +15,7 @@ class MainCategoryItem extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     bool isWideScreen = screenWidth > Dimen.widthWideScreenSpec;
     Widget productList = getProductListView(isWideScreen);
+    // calculate width to fit full screen size
     double wideScreenItemWidth = (screenWidth - Dimen.paddingGeneral * 3) / 3;
 
     return isWideScreen
