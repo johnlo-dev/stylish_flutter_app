@@ -26,15 +26,11 @@ class MainCategoryItem extends StatelessWidget {
               VerticalSpacer(spacerHeight: Dimen.paddingGeneralHalf),
               Expanded(child: productList)
             ]))
-        : Wrap(
+        : Column(
             children: [
-              Column(
-                children: [
-                  Text(category.title),
-                  VerticalSpacer(spacerHeight: Dimen.paddingGeneralHalf),
-                  Wrap(children: [productList])
-                ],
-              )
+              Text(category.title),
+              VerticalSpacer(spacerHeight: Dimen.paddingGeneralHalf),
+              productList
             ],
           );
   }

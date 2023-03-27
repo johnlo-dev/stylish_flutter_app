@@ -20,23 +20,11 @@ class MainCategoryList extends StatelessWidget {
             scrollDirection: isWideScreen ? Axis.horizontal : Axis.vertical,
             itemCount: categoryList.length,
             itemBuilder: (BuildContext context, int position) {
-              return getCategoryItemConstraintByScreenSize(
-                  position, isWideScreen);
+              return getCategoryItem(position);
             }));
   }
 
-  Widget getCategoryItemConstraintByScreenSize(
-      int position, bool isWideScreen) {
-    return isWideScreen
-        ? Expanded(
-            // expand width for horizontal listview
-            child: getCategoryItemView(position))
-        : Wrap(
-            // wrap height for vertical listview
-            children: [getCategoryItemView(position)]);
-  }
-
-  Widget getCategoryItemView(int position) {
+  Widget getCategoryItem(int position) {
     return Padding(
         padding: EdgeInsets.all(Dimen.paddingGeneralHalf),
         child: MainCategoryItem(category: categoryList[position]));
