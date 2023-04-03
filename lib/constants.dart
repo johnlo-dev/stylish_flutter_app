@@ -1,4 +1,10 @@
-class Dimen {
+class Strings {
+
+  static get appHeader => "STYLiSH";
+}
+
+
+class Dimens {
   static get fontSizeHeader => 32.0;
 
   static get heightMainBanner => 180.0;
@@ -12,4 +18,9 @@ class Dimen {
   static get paddingGeneralHalf => 8.0;
 
   static get roundingGeneral => 8.0;
+}
+
+class Images {
+
+  static get icBack => "images/ic_back.svg";
 }

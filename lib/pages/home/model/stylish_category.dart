@@ -1,4 +1,6 @@
-import 'package:flutter_project/home/model/product.dart';
+
+
+import 'product.dart';
 
 class StylishCategory {
   String title = "";

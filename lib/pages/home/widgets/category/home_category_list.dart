@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/home/widgets/category/home_category_item.dart';
 
-import '../../constants.dart';
+import '../../../../constants.dart';
 import '../../model/stylish_category.dart';
+import 'home_category_item.dart';
 
 class MainCategoryList extends StatelessWidget {
   MainCategoryList({super.key, required this.categoryList});
@@ -13,7 +13,7 @@ class MainCategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isWideScreen =
-        MediaQuery.of(context).size.width > Dimen.widthWideScreenSpec;
+        MediaQuery.of(context).size.width > Dimens.widthWideScreenSpec;
 
     return Expanded(
         child: ListView.builder(
@@ -26,7 +26,7 @@ class MainCategoryList extends StatelessWidget {
 
   Widget getCategoryItem(int position) {
     return Padding(
-        padding: EdgeInsets.all(Dimen.paddingGeneralHalf),
+        padding: EdgeInsets.all(Dimens.paddingGeneralHalf),
         child: MainCategoryItem(category: categoryList[position]));
   }
 }

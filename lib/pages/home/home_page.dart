@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/home/model/stylish_category.dart';
-import 'package:flutter_project/home/widgets/category/home_category_list.dart';
 
+import '../../general_widgets/stylish_header.dart';
 import 'model/product.dart';
+import 'model/stylish_category.dart';
+import 'widgets/category/home_category_list.dart';
 import 'widgets/home_banner.dart';
-import 'widgets/home_header.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         body: Column(children: [
-          const MainHeader(title: "Stylish"),
+          StylishHeader(hasIcBack: false),
           MainBanner(
               bannerList: const [bannerUrl, bannerUrl, bannerUrl, bannerUrl]),
           MainCategoryList(categoryList: <StylishCategory>[
@@ -39,7 +39,11 @@ class HomePage extends StatelessWidget {
                   "故事",
                   [Colors.red, Colors.blue, Colors.yellow],
                   ["S", "M", "L"],
-                  [femaleUrl],
+                  [
+                    'https://api.appworks-school.tw/assets/201807202140/0.jpg',
+                    'https://api.appworks-school.tw/assets/201807202140/1.jpg',
+                    'https://api.appworks-school.tw/assets/201807202140/0.jpg'
+                  ],
                   femaleUrl,
                   "100")
             ]),
@@ -69,7 +73,11 @@ class HomePage extends StatelessWidget {
                   "故事",
                   [Colors.red, Colors.blue, Colors.yellow],
                   ["S", "M", "L"],
-                  [maleUrl],
+                  [
+                    'https://api.appworks-school.tw/assets/201807202140/0.jpg',
+                    'https://api.appworks-school.tw/assets/201807202140/1.jpg',
+                    'https://api.appworks-school.tw/assets/201807202140/0.jpg'
+                  ],
                   maleUrl,
                   "100")
             ]),
@@ -99,7 +107,11 @@ class HomePage extends StatelessWidget {
                   "故事",
                   [Colors.red, Colors.blue, Colors.yellow],
                   ["S", "M", "L"],
-                  [accessoryUrl],
+                  [
+                    'https://api.appworks-school.tw/assets/201807202140/0.jpg',
+                    'https://api.appworks-school.tw/assets/201807202140/1.jpg',
+                    'https://api.appworks-school.tw/assets/201807202140/0.jpg'
+                  ],
                   accessoryUrl,
                   "100"),
               Product(

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import '../../../constants.dart';
 
 class MainBanner extends StatelessWidget {
   MainBanner({super.key, required this.bannerList});
@@ -11,7 +11,7 @@ class MainBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: Dimen.heightMainBanner,
+        height: Dimens.heightMainBanner,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: bannerList.length,
@@ -22,11 +22,11 @@ class MainBanner extends StatelessWidget {
 
   Widget getBannerItem(int position) {
     return Padding(
-        padding: EdgeInsets.all(Dimen.paddingGeneralHalf),
+        padding: EdgeInsets.all(Dimens.paddingGeneralHalf),
         child: SizedBox(
-            width: Dimen.widthMainBannerImage,
+            width: Dimens.widthMainBannerImage,
             child: ClipRRect(
-                borderRadius: BorderRadius.circular(Dimen.roundingGeneral),
+                borderRadius: BorderRadius.circular(Dimens.roundingGeneral),
                 child: Image.network(
                   bannerList[position],
                   fit: BoxFit.cover,
