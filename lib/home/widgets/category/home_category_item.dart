@@ -77,7 +77,7 @@ class ProductListItem extends StatelessWidget {
                             topLeft: Radius.circular(Dimen.roundingGeneral),
                             bottomLeft: Radius.circular(Dimen.roundingGeneral)),
                         child: Image.network(
-                          product.imageUrl,
+                          product.mainImage,
                           width: Dimen.widthMainProductImage,
                           fit: BoxFit.cover,
                         )),
@@ -89,7 +89,7 @@ class ProductListItem extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(product.name),
+                                  Text(product.title),
                                   Text("\$${product.price}")
                                 ])))
                   ],

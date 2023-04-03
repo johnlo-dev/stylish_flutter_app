@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     const bannerUrl = "https://i.ytimg.com/vi/DaFxQ-eIGXM/maxresdefault.jpg";
     const femaleUrl =
         "https://i.pinimg.com/736x/31/2c/76/312c760b634a09f4ee188e11b58e3099.jpg";
@@ -27,29 +28,95 @@ class HomePage extends StatelessWidget {
               bannerList: const [bannerUrl, bannerUrl, bannerUrl, bannerUrl]),
           MainCategoryList(categoryList: <StylishCategory>[
             StylishCategory("女裝", <Product>[
-              Product("女裝1女裝1女裝1女裝1女裝1女裝1女裝1", femaleUrl, 100),
-              Product("女裝2", femaleUrl, 200),
-              Product("女裝3", femaleUrl, 300),
-              Product("女裝1女裝1女裝1女裝1女裝1女裝1女裝1", femaleUrl, 100),
-              Product("女裝2", femaleUrl, 200),
-              Product("女裝3", femaleUrl, 300)
+              Product(
+                  111111,
+                  "透肌砰砰防曬襯衫",
+                  "描述",
+                  "文字",
+                  "洗滌",
+                  "中國",
+                  "注意事項",
+                  "故事",
+                  [Colors.red, Colors.blue, Colors.yellow],
+                  ["S", "M", "L"],
+                  [femaleUrl],
+                  femaleUrl,
+                  "100")
             ]),
             StylishCategory("男裝", <Product>[
-              Product("男裝1", maleUrl, 100),
-              Product("男裝2男裝2男裝2男裝2男裝2男裝2男裝2男裝2男裝2", maleUrl, 200),
-              Product("男裝3", maleUrl, 300),
-              Product("男裝1", maleUrl, 100),
-              Product("男裝2男裝2男裝2男裝2男裝2男裝2男裝2男裝2男裝2", maleUrl, 200),
-              Product("男裝3", maleUrl, 300)
+              Product(
+                  111111,
+                  "男裝防曬襯衫1",
+                  "描述",
+                  "文字",
+                  "洗滌",
+                  "中國",
+                  "注意事項",
+                  "故事",
+                  [Colors.red, Colors.blue, Colors.yellow],
+                  ["S", "M", "L"],
+                  [maleUrl],
+                  maleUrl,
+                  "100"),
+              Product(
+                  111111,
+                  "男裝防曬襯衫2",
+                  "描述",
+                  "文字",
+                  "洗滌",
+                  "中國",
+                  "注意事項",
+                  "故事",
+                  [Colors.red, Colors.blue, Colors.yellow],
+                  ["S", "M", "L"],
+                  [maleUrl],
+                  maleUrl,
+                  "100")
             ]),
             StylishCategory("配件", <Product>[
-              Product("配件1", accessoryUrl, 100),
-              Product("配件2", accessoryUrl, 200),
-              Product("配件3配件3配件3配件3配件3配件3配件3配件3配件3", accessoryUrl, 300),
-              Product("配件1", accessoryUrl, 100),
-              Product("配件2", accessoryUrl, 200),
-              Product("配件3配件3配件3配件3配件3配件3配件3配件3配件3", accessoryUrl, 300)
-            ]),
+              Product(
+                  111111,
+                  "配件防曬襯衫1",
+                  "描述",
+                  "文字",
+                  "洗滌",
+                  "中國",
+                  "注意事項",
+                  "故事",
+                  [Colors.red, Colors.blue, Colors.yellow],
+                  ["S", "M", "L"],
+                  [accessoryUrl],
+                  accessoryUrl,
+                  "100"),
+              Product(
+                  111111,
+                  "配件防曬襯衫2",
+                  "描述",
+                  "文字",
+                  "洗滌",
+                  "中國",
+                  "注意事項",
+                  "故事",
+                  [Colors.red, Colors.blue, Colors.yellow],
+                  ["S", "M", "L"],
+                  [accessoryUrl],
+                  accessoryUrl,
+                  "100"),
+              Product(
+                  111111,
+                  "配件防曬襯衫3",
+                  "描述",
+                  "文字",
+                  "洗滌",
+                  "中國",
+                  "注意事項",
+                  "故事",
+                  [Colors.red, Colors.blue, Colors.yellow],
+                  ["S", "M", "L"],
+                  [accessoryUrl],
+                  accessoryUrl,
+                  "100")
+            ])
           ])
         ]));
   }
