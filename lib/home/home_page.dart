@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/main/model/stylish_category.dart';
-import 'package:flutter_project/main/widgets/category/main_category_list.dart';
+import 'package:flutter_project/home/model/stylish_category.dart';
+import 'package:flutter_project/home/widgets/category/home_category_list.dart';
 
 import 'model/product.dart';
-import 'widgets/main_banner.dart';
-import 'widgets/main_header.dart';
+import 'widgets/home_banner.dart';
+import 'widgets/home_header.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

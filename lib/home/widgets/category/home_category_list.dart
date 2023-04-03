@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/main/widgets/category/main_category_item.dart';
+import 'package:flutter_project/home/widgets/category/home_category_item.dart';
 
 import '../../constants.dart';
 import '../../model/stylish_category.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/general_widgets/vertical_spacer.dart';
-import 'package:flutter_project/main/model/stylish_category.dart';
+import 'package:flutter_project/home/model/stylish_category.dart';
 
 import '../../constants.dart';
 import '../../model/product.dart';
