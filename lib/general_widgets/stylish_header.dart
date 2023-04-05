@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/general_widgets/fix_size_divider.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants.dart';
@@ -14,15 +15,14 @@ class StylishHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        VerticalSpacer(spacerHeight: Dimens.paddingGeneralHalf),
+        const VerticalSpacer(spacerHeight: Dimens.paddingHalf),
         Stack(
           children: [
             Visibility(
               visible: hasIcBack,
               child: Align(
                   alignment: Alignment.centerLeft,
-                  child: IconButton(
-                      icon: SvgPicture.asset(Images.icBack),
+                  child: BackButton(
                       onPressed: () {
                         Navigator.pop(context);
                       })),
@@ -31,15 +31,16 @@ class StylishHeader extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: Dimens.fontSizeHeader,
                       color: Colors.black,
                       decoration: TextDecoration.none)),
             ),
           ],
         ),
-        VerticalSpacer(spacerHeight: Dimens.paddingGeneralHalf),
-        const Divider(color: Colors.black)
+        const VerticalSpacer(spacerHeight: Dimens.paddingHalf),
+        SizedBox(
+            height: 1, width: MediaQuery.of(context).size.width, child: Container(color: Colors.grey))
       ],
     );
   }

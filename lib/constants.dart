@@ -1,26 +1,53 @@
 class Strings {
 
-  static get appHeader => "STYLiSH";
+  static const appHeader = "STYLiSH";
+
+  static const detailTitleColor = "顏色";
+  static const detailTitleSize = "尺寸";
+  static const detailTitleAmount = "數量";
+  static const detailTitleSelectSize = "請選擇尺寸";
+
+  static const detailTitlePlace = "產地：";
+  static const detailTitleDescription = "細部說明";
 }
 
-
 class Dimens {
-  static get fontSizeHeader => 32.0;
+  static const fontSizeHeader = 32.0;
 
-  static get heightMainBanner => 180.0;
-  static get heightMainProduct => 150.0;
+  static const heightMainBanner = 180.0;
+  static const heightMainProduct = 150.0;
+  static const heightDetailMainImage = 440.0;
+  static const heightDetailSelector = 40.0;
+  static const heightColorSelectorItem = 20.0;
+  static const heightSizeSelectorItem = 20.0;
+  static const heightSizeSelectorButton = 50.0;
 
-  static get widthWideScreenSpec => 800.0;
-  static get widthMainBannerImage => 380.0;
-  static get widthMainProductImage => 100.0;
+  static const widthWideScreenSpec = 800.0;
+  static const widthMainBannerImage = 380.0;
+  static const widthMainProductImage = 100.0;
+  static const widthDetailContentWide = 720.0;
+  static const widthDetailContentNotWide = 360.0;
+  static const widthColorSelectorItem = 20.0;
+  static const widthSizeSelectorItem = 44.0;
+  static const widthAmountSelectorInputField = 100.0;
 
-  static get paddingGeneral => 16.0;
-  static get paddingGeneralHalf => 8.0;
+  static const paddingGeneral = 16.0;
+  static const paddingHalf = 8.0;
+  static const paddingDouble = 32.0;
 
-  static get roundingGeneral => 8.0;
+  static const roundingGeneral = 8.0;
+  static const roundingSizeSelector = 16.0;
+
+  static const ratioDetailMoreImages = 0.66;
 }
 
 class Images {
 
-  static get icBack => "images/ic_back.svg";
+  static const icBack = "images/ic_back.svg";
+}
+
+class FontSizes {
+
+  static const GeneralTitle = 16.0;
+  static const GeneralContent = 12.0;
 }

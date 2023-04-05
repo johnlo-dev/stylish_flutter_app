@@ -26,7 +26,7 @@ class MainCategoryList extends StatelessWidget {
 
   Widget getCategoryItem(int position) {
     return Padding(
-        padding: EdgeInsets.all(Dimens.paddingGeneralHalf),
+        padding: EdgeInsets.all(Dimens.paddingHalf),
         child: MainCategoryItem(category: categoryList[position]));
   }
 }

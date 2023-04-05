@@ -24,13 +24,13 @@ class MainCategoryItem extends StatelessWidget {
             width: wideScreenItemWidth,
             child: Column(children: [
               Text(category.title),
-              VerticalSpacer(spacerHeight: Dimens.paddingGeneralHalf),
+              VerticalSpacer(spacerHeight: Dimens.paddingHalf),
               Expanded(child: productList)
             ]))
         : Column(
             children: [
               Text(category.title),
-              VerticalSpacer(spacerHeight: Dimens.paddingGeneralHalf),
+              VerticalSpacer(spacerHeight: Dimens.paddingHalf),
               productList
             ],
           );
@@ -68,8 +68,8 @@ class ProductListItem extends StatelessWidget {
       child: SizedBox(
           height: Dimens.heightMainProduct,
           child: Padding(
-              padding: EdgeInsets.fromLTRB(Dimens.paddingGeneralHalf, 0,
-                  Dimens.paddingGeneralHalf, Dimens.paddingGeneralHalf),
+              padding: EdgeInsets.fromLTRB(Dimens.paddingHalf, 0,
+                  Dimens.paddingHalf, Dimens.paddingHalf),
               child: Container(
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
@@ -93,7 +93,7 @@ class ProductListItem extends StatelessWidget {
                       Expanded(
                           // to make text width flexible without overflow
                           child: Padding(
-                              padding: EdgeInsets.all(Dimens.paddingGeneralHalf),
+                              padding: EdgeInsets.all(Dimens.paddingHalf),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.center,

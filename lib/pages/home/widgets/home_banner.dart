@@ -22,7 +22,7 @@ class MainBanner extends StatelessWidget {
 
   Widget getBannerItem(int position) {
     return Padding(
-        padding: EdgeInsets.all(Dimens.paddingGeneralHalf),
+        padding: EdgeInsets.all(Dimens.paddingHalf),
         child: SizedBox(
             width: Dimens.widthMainBannerImage,
             child: ClipRRect(

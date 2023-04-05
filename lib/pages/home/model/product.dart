@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 
 class Product {
   int id = 0;
@@ -8,11 +9,12 @@ class Product {
   String place = "";
   String note = "";
   String story = "";
-  List colors = [];
-  List sizes = [];
+  List<String> colors = [];
+  List<String> sizes = [];
   String mainImage = "";
-  List images = [];
+  List<String> images = [];
   String price = "";
+
   Product(
       this.id,
       this.title,
@@ -28,7 +30,7 @@ class Product {
       this.mainImage,
       this.price);
 
-  factory Product.from(Product productOne){
+  factory Product.from(Product productOne) {
     return Product(
         productOne.id,
         productOne.title,
@@ -42,7 +44,34 @@ class Product {
         productOne.sizes,
         productOne.images,
         productOne.mainImage,
-        productOne.price
-    );
+        productOne.price);
+  }
+
+  static Color parseColor(String colorString) {
+    const colorRed = "red";
+    const colorBlue = "blue";
+    const colorYellow = "yellow";
+    const colorBlack = "black";
+
+    var color = Colors.transparent;
+
+    switch (colorString) {
+      case colorRed:
+        color = Colors.red;
+        break;
+      case colorBlue:
+        color = Colors.blue;
+        break;
+      case colorYellow:
+        color = Colors.yellow;
+        break;
+      case colorBlack:
+        color = Colors.black;
+        break;
+      default:
+        color = Colors.transparent;
+        break;
+    }
+    return color;
   }
 }
