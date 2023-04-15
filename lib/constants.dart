@@ -2,6 +2,10 @@ class Strings {
 
   static const appHeader = "STYLiSH";
 
+  static const categoryFemale = "女裝";
+  static const categoryMale = "男裝";
+  static const categoryAccessory = "配件";
+
   static const detailTitleColor = "顏色";
   static const detailTitleSize = "尺寸";
   static const detailTitleAmount = "數量";
@@ -9,6 +13,14 @@ class Strings {
 
   static const detailTitlePlace = "產地：";
   static const detailTitleDescription = "細部說明";
+
+  static const apiBaseUrl = "https://api.appworks-school.tw/api/";
+  static const apiVersion = "1.0";
+
+  static const allProductListEndpoint = "/products/all";
+  static const femaleProductListEndpoint = "/products/women";
+  static const maleProductListEndpoint = "/products/men";
+  static const accessoriesProductListEndpoint = "/products/accessories";
 }
 
 class Dimens {
@@ -48,6 +60,11 @@ class Images {
 
 class FontSizes {
 
-  static const GeneralTitle = 16.0;
-  static const GeneralContent = 12.0;
+  static const generalTitle = 16.0;
+  static const generalContent = 12.0;
+}
+
+class StatusCode {
+
+  static const success = 200;
 }

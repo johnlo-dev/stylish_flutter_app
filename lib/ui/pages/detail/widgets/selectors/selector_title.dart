@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/general_widgets/fix_size_divider.dart';
 
-import '../../../constants.dart';
+import '../../../../../constants.dart';
+import '../../../../general_widgets/fix_size_divider.dart';
+
 
 class SelectorTitle extends StatelessWidget {
-  const SelectorTitle({super.key, required, required this.title});
+  const SelectorTitle({super.key, required, required String title}) : _title = title;
 
-  final String title;
+  final String _title;
 
   @override
   Widget build(BuildContext context) {
     return Row(children: [
       Text(
-        title,
+        _title,
         style: const TextStyle(fontSize: 12, color: Colors.black),
       ),
       const FixedSizeDivider(

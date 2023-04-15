@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/general_widgets/fix_size_divider.dart';
-import 'package:flutter_project/general_widgets/vertical_spacer.dart';
-import 'package:flutter_project/pages/detail/selectors/color_selector.dart';
-import 'package:flutter_project/pages/detail/selectors/size_selector.dart';
-import 'package:flutter_project/pages/home/model/product.dart';
-
-import '../../constants.dart';
+import 'package:flutter_project/ui/pages/detail/widgets/selectors/amout_selector.dart';
+import 'package:flutter_project/ui/pages/detail/widgets/selectors/color_selector.dart';
+import 'package:flutter_project/ui/pages/detail/widgets/selectors/size_selector.dart';
+import '../../../constants.dart';
+import '../../../model/product.dart';
+import '../../general_widgets/fix_size_divider.dart';
 import '../../general_widgets/stylish_header.dart';
-import 'selectors/amout_selector.dart';
+import '../../general_widgets/vertical_spacer.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key, required this.product});
+  const DetailPage({super.key, required Product product}) : _product = product;
 
-  final Product product;
+  final Product _product;
 
   @override
   Widget build(BuildContext context) {
@@ -29,19 +28,19 @@ class DetailPage extends StatelessWidget {
                   child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      itemCount: product.images.length + 3,
+                      itemCount: _product.images.length + 3,
                       itemBuilder: (BuildContext context, int position) {
                         switch (position) {
                           case 0 :
                             return const VerticalSpacer(spacerHeight: Dimens.paddingHalf);
                           case 1:
-                            return getDynamicLayoutItem(context, product);
+                            return getDynamicLayoutItem(context, _product);
                           case 2:
                             return getDescriptionItem(
-                                context, isWideScreen, product);
+                                context, isWideScreen, _product);
                           default:
                             return getImageItem(context, isWideScreen,
-                                product.images[position - 3]);
+                                _product.images[position - 3]);
                         }
                       }),
                 ),
@@ -68,9 +67,9 @@ class DetailPage extends StatelessWidget {
       SizedBox(
         width: Dimens.widthDetailContentNotWide,
         height: Dimens.heightDetailMainImage,
-        child: Image.network(product.mainImage, fit: BoxFit.cover),
+        child: Image.network(_product.mainImage, fit: BoxFit.cover),
       ),
-      ContentSection(product: product)
+      ContentSection(product: _product)
     ];
   }
 
@@ -136,15 +135,15 @@ class DetailPage extends StatelessWidget {
 }
 
 class ContentSection extends StatelessWidget {
-  const ContentSection({super.key, required this.product});
+  const ContentSection({super.key, required Product product}) : _product = product;
 
-  final Product product;
+  final Product _product;
 
   @override
   Widget build(BuildContext context) {
     bool isWideScreen =
         MediaQuery.of(context).size.width > Dimens.widthWideScreenSpec;
-
+    
     return SizedBox(
       width: Dimens.widthDetailContentNotWide,
       child: Padding(
@@ -154,20 +153,20 @@ class ContentSection extends StatelessWidget {
           shrinkWrap: true,
           children: [
             Text(
-              product.title,
+              _product.title,
               style: const TextStyle(
-                  fontSize: FontSizes.GeneralTitle,
+                  fontSize: FontSizes.generalTitle,
                   color: Colors.black,
                   fontWeight: FontWeight.bold),
             ),
             const VerticalSpacer(spacerHeight: Dimens.paddingHalf),
-            Text(product.id.toString(),
+            Text(_product.id.toString(),
                 style: const TextStyle(
-                    fontSize: FontSizes.GeneralContent, color: Colors.black)),
+                    fontSize: FontSizes.generalContent, color: Colors.black)),
             const VerticalSpacer(spacerHeight: Dimens.paddingDouble),
-            Text("NT\$${product.price}",
+            Text("NT\$${_product.price}",
                 style: const TextStyle(
-                    fontSize: FontSizes.GeneralTitle,
+                    fontSize: FontSizes.generalTitle,
                     color: Colors.black,
                     fontWeight: FontWeight.bold)),
             const VerticalSpacer(spacerHeight: Dimens.paddingGeneral),
@@ -177,9 +176,9 @@ class ContentSection extends StatelessWidget {
               color: Colors.grey,
               padding: 0,
             ),
-            ColorSelector(colorList: product.colors),
-            SizeSelector(sizeList: product.sizes),
-            const AmountSelector(maxAmount: 666),
+            ColorSelector(colorList: _product.colors),
+            SizeSelector(sizeList: _product.sizes),
+            AmountSelector(maxAmount: 666),
             SizedBox(
               height: Dimens.heightSizeSelectorButton,
               child: ElevatedButton(
@@ -197,10 +196,10 @@ class ContentSection extends StatelessWidget {
             // SizeSelector(sizeList: product.sizes),
             // countView(),
             const VerticalSpacer(spacerHeight: Dimens.paddingGeneral),
-            Text(product.note),
-            Text(product.texture),
-            Text(product.wash),
-            Text(Strings.detailTitlePlace + product.place)
+            Text(_product.note),
+            Text(_product.texture),
+            Text(_product.wash),
+            Text(Strings.detailTitlePlace + _product.place)
           ],
         ),
       ),

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/general_widgets/vertical_spacer.dart';
 
+import '../../../../../constants.dart';
+import '../../../../../model/product.dart';
+import '../../../../../model/stylish_category.dart';
+import '../../../../general_widgets/vertical_spacer.dart';
 import '../../../detail/detail_page.dart';
-import '../../../../constants.dart';
-import '../../model/product.dart';
-import '../../model/stylish_category.dart';
 
 class MainCategoryItem extends StatelessWidget {
-  const MainCategoryItem({super.key, required this.category});
+  const MainCategoryItem({super.key, required StylishCategory category}) : _category = category;
 
-  final StylishCategory category;
+  final StylishCategory _category;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +23,14 @@ class MainCategoryItem extends StatelessWidget {
         ? SizedBox(
             width: wideScreenItemWidth,
             child: Column(children: [
-              Text(category.title),
-              VerticalSpacer(spacerHeight: Dimens.paddingHalf),
+              Text(_category.title),
+              const VerticalSpacer(spacerHeight: Dimens.paddingHalf),
               Expanded(child: productList)
             ]))
         : Column(
             children: [
-              Text(category.title),
-              VerticalSpacer(spacerHeight: Dimens.paddingHalf),
+              Text(_category.title),
+              const VerticalSpacer(spacerHeight: Dimens.paddingHalf),
               productList
             ],
           );
@@ -40,11 +40,11 @@ class MainCategoryItem extends StatelessWidget {
     return ListView.builder(
         shrinkWrap: !isWideScreen,
         scrollDirection: Axis.vertical,
-        itemCount: category.productList.length,
+        itemCount: _category.productList.length,
         physics: const ClampingScrollPhysics(),
         itemBuilder: (BuildContext context, int position) {
           return ProductListItem(
-            product: category.productList[position],
+            product: _category.productList[position],
           );
         });
   }

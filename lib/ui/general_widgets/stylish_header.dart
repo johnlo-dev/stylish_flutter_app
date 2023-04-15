@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/general_widgets/fix_size_divider.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_project/ui/pages/detail/detail_cubit.dart';
+import '../../constants.dart';
 import 'vertical_spacer.dart';
 
 class StylishHeader extends StatelessWidget {
@@ -25,6 +24,7 @@ class StylishHeader extends StatelessWidget {
                   child: BackButton(
                       onPressed: () {
                         Navigator.pop(context);
+                        context.read<DetailCubit>().clearOrder();
                       })),
             ),
             Align(

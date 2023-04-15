@@ -1,19 +1,33 @@
 import 'package:flutter/material.dart';
-
-import 'pages/home/home_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_project/repo/product_repository.dart';
+import 'package:flutter_project/ui/pages/detail/detail_cubit.dart';
+import 'package:flutter_project/ui/pages/home/home_cubit.dart';
+import 'package:flutter_project/ui/pages/home/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final IProductRepository productRepository = ProductRepository();
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
-      debugShowCheckedModeBanner: false,
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<HomeCubit>(
+            create: (BuildContext context) => HomeCubit(productRepository),
+          ),
+          BlocProvider<DetailCubit>(
+            create: (BuildContext context) => DetailCubit(productRepository),
+          )
+        ],
+        child: const MaterialApp(
+          home: HomePage(),
+          debugShowCheckedModeBanner: false,
+        ));
   }
 }
