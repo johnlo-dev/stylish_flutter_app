@@ -11,6 +11,8 @@ class Strings {
   static const detailTitleAmount = "數量";
   static const detailTitleSelectSize = "請選擇尺寸";
 
+  static const detailTitleTexture = "材質：";
+  static const detailTitleWash = "洗滌：";
   static const detailTitlePlace = "產地：";
   static const detailTitleDescription = "細部說明";
 

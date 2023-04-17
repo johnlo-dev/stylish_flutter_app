@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project/ui/pages/detail/widgets/selectors/amout_selector.dart';
 import 'package:flutter_project/ui/pages/detail/widgets/selectors/color_selector.dart';
 import 'package:flutter_project/ui/pages/detail/widgets/selectors/size_selector.dart';
+
 import '../../../constants.dart';
 import '../../../model/product.dart';
 import '../../general_widgets/fix_size_divider.dart';
@@ -17,7 +18,6 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isWideScreen =
         MediaQuery.of(context).size.width > Dimens.widthWideScreenSpec;
-
     return SafeArea(
         child: Scaffold(
             backgroundColor: Colors.white,
@@ -31,13 +31,14 @@ class DetailPage extends StatelessWidget {
                       itemCount: _product.images.length + 3,
                       itemBuilder: (BuildContext context, int position) {
                         switch (position) {
-                          case 0 :
-                            return const VerticalSpacer(spacerHeight: Dimens.paddingHalf);
+                          case 0:
+                            return const VerticalSpacer(
+                                spacerHeight: Dimens.paddingHalf);
                           case 1:
                             return getDynamicLayoutItem(context, _product);
                           case 2:
-                            return getDescriptionItem(
-                                context, isWideScreen, _product);
+                            return getStoryItem(
+                                context, isWideScreen, _product.story);
                           default:
                             return getImageItem(context, isWideScreen,
                                 _product.images[position - 3]);
@@ -73,8 +74,7 @@ class DetailPage extends StatelessWidget {
     ];
   }
 
-  Widget getDescriptionItem(
-      BuildContext context, bool isWideScreen, Product product) {
+  Widget getStoryItem(BuildContext context, bool isWideScreen, String story) {
     const widthWide = Dimens.widthDetailContentWide;
     const widthNotWide =
         Dimens.widthDetailContentNotWide - Dimens.paddingHalf * 2;
@@ -105,8 +105,7 @@ class DetailPage extends StatelessWidget {
         ),
       ),
       SizedBox(
-          width: isWideScreen ? widthWide : widthNotWide,
-          child: Text(product.description)),
+          width: isWideScreen ? widthWide : widthNotWide, child: Text(story)),
       const VerticalSpacer(spacerHeight: Dimens.paddingHalf),
     ]);
   }
@@ -135,7 +134,8 @@ class DetailPage extends StatelessWidget {
 }
 
 class ContentSection extends StatelessWidget {
-  const ContentSection({super.key, required Product product}) : _product = product;
+  const ContentSection({super.key, required Product product})
+      : _product = product;
 
   final Product _product;
 
@@ -143,7 +143,7 @@ class ContentSection extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isWideScreen =
         MediaQuery.of(context).size.width > Dimens.widthWideScreenSpec;
-    
+
     return SizedBox(
       width: Dimens.widthDetailContentNotWide,
       child: Padding(
@@ -151,6 +151,7 @@ class ContentSection extends StatelessWidget {
             isWideScreen ? Dimens.paddingGeneral : Dimens.paddingHalf),
         child: ListView(
           shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           children: [
             Text(
               _product.title,
@@ -176,7 +177,8 @@ class ContentSection extends StatelessWidget {
               color: Colors.grey,
               padding: 0,
             ),
-            ColorSelector(colorList: _product.colors.map((color) => color.code).toList()),
+            ColorSelector(
+                colorList: _product.colors.map((color) => color.code).toList()),
             SizeSelector(sizeList: _product.sizes),
             AmountSelector(maxAmount: 666),
             SizedBox(
@@ -196,10 +198,11 @@ class ContentSection extends StatelessWidget {
             // SizeSelector(sizeList: product.sizes),
             // countView(),
             const VerticalSpacer(spacerHeight: Dimens.paddingGeneral),
+            Text(Strings.detailTitleTexture + _product.texture),
+            Text(_product.description),
+            Text(Strings.detailTitlePlace + _product.place),
+            Text(Strings.detailTitleWash + _product.wash),
             Text(_product.note),
-            Text(_product.texture),
-            Text(_product.wash),
-            Text(Strings.detailTitlePlace + _product.place)
           ],
         ),
       ),

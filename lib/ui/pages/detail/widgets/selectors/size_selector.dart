@@ -38,7 +38,7 @@ class SizeSelector extends StatelessWidget {
                             }
                             return ElevatedButton(
                               style: ElevatedButton.styleFrom( // ElevatedButton styles
-                                  padding: const EdgeInsets.all(Dimens.paddingHalf), // Some padding example
+                                  padding: EdgeInsets.zero, // Some padding example
                                   shape: RoundedRectangleBorder( // Border
                                     borderRadius: BorderRadius.circular(Dimens.roundingSizeSelector),
                                   ),
