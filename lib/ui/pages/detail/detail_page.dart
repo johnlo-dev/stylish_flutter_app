@@ -176,7 +176,7 @@ class ContentSection extends StatelessWidget {
               color: Colors.grey,
               padding: 0,
             ),
-            ColorSelector(colorList: _product.colors),
+            ColorSelector(colorList: _product.colors.map((color) => color.code).toList()),
             SizeSelector(sizeList: _product.sizes),
             AmountSelector(maxAmount: 666),
             SizedBox(
