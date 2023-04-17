@@ -26,6 +26,7 @@ class HomeCubit extends Cubit<IHomeViewState> {
       : super(ListUpdated(HomeViewEntity([], [], [], [], "")));
 
   Future<void> fetchHomeProductLists() async {
+    _handleProductListResponse(CategoryType.all, await _productRepository.fetchProductList(CategoryType.all));
     _handleProductListResponse(CategoryType.female, await _productRepository.fetchProductList(CategoryType.female));
     _handleProductListResponse(CategoryType.male, await _productRepository.fetchProductList(CategoryType.male));
     _handleProductListResponse(CategoryType.accessory, await _productRepository.fetchProductList(CategoryType.accessory));
@@ -35,6 +36,9 @@ class HomeCubit extends Cubit<IHomeViewState> {
       CategoryType type, ProductListResponse response) {
     if (response.code == StatusCode.success) {
       switch (type) {
+        case CategoryType.all:
+          homeViewEntity.bannerList = response.productList;
+          break;
         case CategoryType.female:
           homeViewEntity.femaleList = response.productList;
           break;
@@ -54,7 +58,7 @@ class HomeCubit extends Cubit<IHomeViewState> {
 }
 
 class HomeViewEntity {
-  List<String> bannerList;
+  List<Product> bannerList;
   List<Product> femaleList;
   List<Product> maleList;
   List<Product> accessoryList;

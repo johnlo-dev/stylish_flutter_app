@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants.dart';
+import '../../../../model/product.dart';
 
 class MainBanner extends StatelessWidget {
-  MainBanner({super.key, required List<String> bannerList}) : _bannerList = bannerList;
+  const MainBanner({super.key, required List<Product> bannerList}) : _bannerList = bannerList;
 
-  List<String> _bannerList = <String>[];
+  final List<Product> _bannerList;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class MainBanner extends StatelessWidget {
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(Dimens.roundingGeneral),
                 child: Image.network(
-                  _bannerList[position],
+                  _bannerList[position].mainImage,
                   fit: BoxFit.cover,
                 ))));
   }

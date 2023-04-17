@@ -17,6 +17,9 @@ class ProductRepository extends IProductRepository {
     try {
       var endpoint = "";
       switch (type) {
+        case CategoryType.all:
+          endpoint = Strings.allProductListEndpoint;
+          break;
         case CategoryType.female:
           endpoint = Strings.femaleProductListEndpoint;
           break;
@@ -55,4 +58,4 @@ class ProductListResponse extends IApiResponse {
   final List<Product> productList;
 }
 
-enum CategoryType { female, male, accessory }
+enum CategoryType { all, female, male, accessory }
