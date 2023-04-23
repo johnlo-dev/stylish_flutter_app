@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/services.dart';
 
 import '../../../model/order.dart';
-import '../../../repo/product_repository.dart';
 
 abstract class IDetailViewState {
   final Order order;
@@ -14,14 +14,12 @@ class OrderUpdated extends IDetailViewState {
 }
 
 class DetailCubit extends Cubit<IDetailViewState> {
-  IProductRepository _productRepository;
-  Order order = Order("", "", "", 0);
+  Order order = Order("", "", "", 0, "");
 
-  DetailCubit(this._productRepository)
-      : super(OrderUpdated(Order("", "", "", 0)));
+  DetailCubit() : super(OrderUpdated(Order("", "", "", 0, "")));
 
   void clearOrder() {
-    order = Order("", "", "", 0);
+    order = Order("", "", "", 0, "");
     emit(OrderUpdated(order));
   }
 
@@ -51,6 +49,21 @@ class DetailCubit extends Cubit<IDetailViewState> {
     } else {
       order.amount = 0;
     }
+    emit(OrderUpdated(order));
+  }
+
+  bool isOrderValid() {
+    return order.color.isNotEmpty && order.size.isNotEmpty && order.amount > 0;
+  }
+
+  void startPay() async {
+    const platformMethodChannel = MethodChannel('androidChannel');
+    order.primeResult = await platformMethodChannel.invokeMethod("startTapPaySetting", {
+      "cardNumber":"",
+      "dueMonth":"",
+      "dueYear":"",
+      "cvv":""
+    });
     emit(OrderUpdated(order));
   }
 }

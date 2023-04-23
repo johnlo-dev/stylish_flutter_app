@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_project/ui/pages/detail/detail_cubit.dart';
 import 'package:flutter_project/ui/pages/detail/widgets/selectors/amout_selector.dart';
 import 'package:flutter_project/ui/pages/detail/widgets/selectors/color_selector.dart';
 import 'package:flutter_project/ui/pages/detail/widgets/selectors/size_selector.dart';
@@ -8,6 +10,7 @@ import '../../../model/product.dart';
 import '../../general_widgets/fix_size_divider.dart';
 import '../../general_widgets/stylish_header.dart';
 import '../../general_widgets/vertical_spacer.dart';
+import '../cart/cart_page.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key, required Product product}) : _product = product;
@@ -183,17 +186,32 @@ class ContentSection extends StatelessWidget {
             AmountSelector(maxAmount: 666),
             SizedBox(
               height: Dimens.heightSizeSelectorButton,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    // Some padding example
-                    shape: RoundedRectangleBorder(
-                      // Border
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    backgroundColor: Colors.black54),
-                onPressed: () {},
-                child: const Text(Strings.detailTitleSelectSize),
-              ),
+              child: BlocBuilder<DetailCubit, IDetailViewState>(
+                  builder: (context, state) {
+                return ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      // Some padding example
+                      shape: RoundedRectangleBorder(
+                        // Border
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                      backgroundColor: Colors.black54),
+                  onPressed: () {
+                    context.read<DetailCubit>().isOrderValid()
+                        ? {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) => CartPage(
+                                        product: _product, order: state.order)))
+                          }
+                        : {};
+                  },
+                  child: Text(context.read<DetailCubit>().isOrderValid()
+                      ? Strings.detailGoToCart
+                      : Strings.detailNeedSelect),
+                );
+              }),
             ),
             // SizeSelector(sizeList: product.sizes),
             // countView(),

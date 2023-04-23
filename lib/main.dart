@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             create: (BuildContext context) => HomeCubit(productRepository),
           ),
           BlocProvider<DetailCubit>(
-            create: (BuildContext context) => DetailCubit(productRepository),
+            create: (BuildContext context) => DetailCubit(),
           )
         ],
         child: const MaterialApp(

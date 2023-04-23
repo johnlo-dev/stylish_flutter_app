@@ -9,12 +9,22 @@ class Strings {
   static const detailTitleColor = "顏色";
   static const detailTitleSize = "尺寸";
   static const detailTitleAmount = "數量";
-  static const detailTitleSelectSize = "請選擇尺寸";
-
+  static const detailNeedSelect = "請選擇正確 顏色/尺寸/數量";
+  static const detailGoToCart = "前往購物車";
   static const detailTitleTexture = "材質：";
   static const detailTitleWash = "洗滌：";
   static const detailTitlePlace = "產地：";
   static const detailTitleDescription = "細部說明";
+
+  static const cartTitlePriceSingle = "單價：";
+  static const cartTitleAmount = "數量：";
+  static const cartTitlePriceTotal = "總價：";
+  static const cartEnterCardInfo = "編輯卡片資訊";
+  static const cartEnterCardInfoSuccess = "卡片資訊輸入成功！";
+  static const cartEnterCardInfoFailed = "卡片資訊輸入錯誤，請重新輸入卡片資訊";
+  static const cartConfirmPayment = "確認付款";
+  static const cartPaymentSuccess = "付款成功";
+
 
   static const apiBaseUrl = "https://api.appworks-school.tw/api/";
   static const apiVersion = "1.0";
