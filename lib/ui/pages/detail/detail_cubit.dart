@@ -57,7 +57,7 @@ class DetailCubit extends Cubit<IDetailViewState> {
   }
 
   void startPay() async {
-    const platformMethodChannel = MethodChannel('androidChannel');
+    const platformMethodChannel = MethodChannel('flutterChannel');
     order.primeResult = await platformMethodChannel.invokeMethod("startTapPaySetting", {
       "cardNumber":"",
       "dueMonth":"",

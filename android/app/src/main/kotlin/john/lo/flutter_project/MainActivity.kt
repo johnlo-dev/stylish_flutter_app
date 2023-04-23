@@ -14,7 +14,7 @@ import tech.cherri.tpdirect.api.TPDSetup
 
 class MainActivity: FlutterActivity() {
 
-    private val flutterChannel = "androidChannel"
+    private val flutterChannel = "flutterChannel"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         GeneratedPluginRegistrant.registerWith(flutterEngine)
